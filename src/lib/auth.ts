@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { UserModel } from '@/models/User-sqlite'
 
-const JWT_SECRET = process.env.JWT_SECRET!
+const JWT_SECRET = process.env.JWT_SECRET || 'development-jwt-secret-change-in-production'
 
 export async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, 12)
