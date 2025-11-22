@@ -29,6 +29,14 @@
 - Definir preferências de hóspedes
 - Gerenciar reservas e disponibilidade
 
+## 🔒 Configuração de Ambiente
+
+Para configurar as variáveis de ambiente:
+
+1. Copie o arquivo de exemplo: `cp .env.example .env.local`
+2. Preencha as variáveis com seus valores reais
+3. **Nunca commite** arquivos `.env*` - eles estão protegidos pelo `.gitignore`
+
 ## 🌿 Branches
 
 - **main**: Código em produção
