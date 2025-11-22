@@ -54,6 +54,13 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Otimizações de performance */
+.glass,
+.glass-strong {
+  will-change: opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
 /* Fallbacks para browsers sem backdrop-filter */
 @supports not (backdrop-filter: blur(10px)) {
   .glass {
