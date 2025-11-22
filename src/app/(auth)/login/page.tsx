@@ -44,20 +44,20 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface relative overflow-hidden dark:to-gray-900">
       {/* Elementos decorativos */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neo-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-neo-secondary/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neo-primary/10 rounded-full blur-3xl dark:bg-neo-primary/5"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-neo-secondary/10 rounded-full blur-2xl dark:bg-neo-secondary/3"></div>
       </div>
 
       <div className="max-w-md w-full space-y-8 relative z-10">
-        <div className="glass-strong rounded-3xl p-8 shadow-neo">
+        <div className="glass-strong rounded-3xl p-8 shadow-neo dark:shadow-glass-dark">
           <div>
             <h2 className="mt-6 text-center text-3xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent">
               Entrar na sua conta
             </h2>
-            <p className="mt-2 text-center text-sm text-neo-secondary/70">
+            <p className="mt-2 text-center text-sm text-neo-secondary/70 dark:text-neo-secondary/60">
               Ou{' '}
               <Link
                 href="/register"
@@ -90,7 +90,7 @@ export default function LoginPage() {
             </div>
 
             {error && (
-              <div className="glass rounded-lg p-3 text-center">
+              <div className="glass rounded-lg p-3 text-center dark:shadow-glass-dark">
                 <span className="text-red-400 text-sm">{error}</span>
               </div>
             )}

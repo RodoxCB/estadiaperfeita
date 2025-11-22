@@ -15,20 +15,32 @@ module.exports = {
         'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
       },
       boxShadow: {
-        'neo': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
-        'neo-inset': 'inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff',
-        'neo-sm': '4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff',
-        'neo-lg': '12px 12px 24px #d1d9e6, -12px -12px 24px #ffffff',
+        'neo': '8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light)',
+        'neo-inset': 'inset 8px 8px 16px var(--neo-shadow-dark), inset -8px -8px 16px var(--neo-shadow-light)',
+        'neo-sm': '4px 4px 8px var(--neo-shadow-dark), -4px -4px 8px var(--neo-shadow-light)',
+        'neo-lg': '12px 12px 24px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light)',
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
       },
       backdropBlur: {
         'xs': '2px',
       },
       colors: {
-        'neo-bg': '#e6ebf0',
-        'neo-surface': '#f0f4f8',
-        'neo-primary': '#4a90e2',
-        'neo-secondary': '#7b8ca6',
+        // Light mode colors
+        'neo-bg-light': '#e6ebf0',
+        'neo-surface-light': '#f0f4f8',
+        'neo-primary-light': '#4a90e2',
+        'neo-secondary-light': '#7b8ca6',
+        // Dark mode colors
+        'neo-bg-dark': '#0f172a',
+        'neo-surface-dark': '#1e293b',
+        'neo-primary-dark': '#60a5fa',
+        'neo-secondary-dark': '#94a3b8',
+        // Universal colors (used in both modes)
+        'neo-bg': 'var(--neo-bg)',
+        'neo-surface': 'var(--neo-surface)',
+        'neo-primary': 'var(--neo-primary)',
+        'neo-secondary': 'var(--neo-secondary)',
       },
       transitionProperty: {
         'neo': 'all',
