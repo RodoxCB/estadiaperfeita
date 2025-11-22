@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { UserModel } from '@/models/User-sqlite'
+import { UserModel } from '@/models/User-memory'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'development-jwt-secret-change-in-production'
 

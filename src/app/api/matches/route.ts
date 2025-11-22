@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/auth'
-import { UserModel } from '@/models/User-sqlite'
-import { HotelModel } from '@/models/Hotel-sqlite'
-import { MatchModel } from '@/models/Match-sqlite'
-import { calculateMatchScore } from '@/lib/matching-sqlite'
+import { UserModel } from '@/models/User-memory'
+import { generateMatchesForUser } from '@/lib/matching-memory'
 
 export async function GET(request: NextRequest) {
   try {
@@ -33,24 +31,20 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    // Buscar hotéis ativos
-    const hotels = await HotelModel.findAll()
-
-    // Calcular scores e filtrar
-    const hotelsWithScores = hotels
-      .map(hotel => ({
-        hotel,
-        score: calculateMatchScore(user.preferences, hotel),
-      }))
-      .filter(item => item.score >= 30) // Mínimo 30% de match
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 20)
+    // Gerar matches usando o sistema de memória
+    const matches = await generateMatchesForUser(parseInt(decoded.userId))
 
     return NextResponse.json({
-      matches: hotelsWithScores.map(item => ({
-        id: item.hotel.id.toString(),
-        ...item.hotel,
-        matchScore: item.score,
+      matches: matches.map(match => ({
+        id: match.id,
+        name: match.hotel.name,
+        description: match.hotel.description,
+        location: match.hotel.location,
+        pricePerNight: match.hotel.pricePerNight,
+        capacity: match.hotel.capacity,
+        acceptsPets: match.hotel.acceptsPets,
+        amenities: match.hotel.amenities,
+        matchScore: match.hotel.matchScore,
       })),
     })
   } catch (error: any) {
