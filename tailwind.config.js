@@ -54,17 +54,27 @@ module.exports = {
   },
   plugins: [],
   safelist: [
-    // Ensure these classes are not purged
-    'glass',
-    'glass-strong',
+    // Glassmorphism neon classes
+    'glass-neon',
+    'glass-neon-strong',
+    // Shadow classes
     'shadow-neo',
-    'shadow-neo-lg',
-    'shadow-glass',
-    'shadow-glass-dark',
+    'shadow-neo-glow',
+    'shadow-neo-glow-secondary',
+    'shadow-glass-neon',
+    'shadow-glass-neon-strong',
+    // Text colors
     'text-neo-primary',
     'text-neo-secondary',
+    'text-neo-accent',
+    'text-neo-pink',
+    // Background colors
     'bg-neo-surface',
     'bg-neo-bg',
+    'bg-neo-primary',
+    'bg-neo-secondary',
+    'bg-neo-accent',
+    // Transitions and animations
     'transition-neo',
     'hover:scale-105',
     'hover:scale-[1.02]',
