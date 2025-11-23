@@ -11,8 +11,8 @@ const buttonVariants = cva(
         outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
         ghost: 'hover:bg-gray-100 text-gray-700 dark:hover:bg-gray-800 dark:text-gray-300',
         // NOVAS variantes neomorphism
-        neo: 'bg-gradient-to-br from-neo-surface to-white shadow-neo hover:shadow-neo-lg hover:scale-[1.02] text-neo-secondary border border-white/20 dark:from-neo-surface dark:to-gray-700 dark:border-gray-600 dark:text-neo-secondary',
-        glass: 'glass shadow-glass hover:bg-white/20 text-neo-secondary hover:text-neo-primary dark:shadow-glass-dark dark:hover:bg-gray-800/50',
+        neo: 'bg-gradient-to-br from-gray-100 to-white shadow-lg hover:shadow-xl hover:scale-[1.02] text-gray-700 border border-white/20 dark:from-gray-800 dark:to-gray-700 dark:border-gray-600 dark:text-gray-300',
+        glass: 'glass shadow-lg hover:bg-white/20 text-gray-600 hover:text-blue-600 dark:shadow-gray-900 dark:hover:bg-gray-800/50',
       },
       size: {
         default: 'h-12 py-3 px-6',

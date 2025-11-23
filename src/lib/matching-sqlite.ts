@@ -95,3 +95,78 @@ export function calculateMatchScore(
 
   return Math.round(Math.min(score, maxScore))
 }
+
+export interface MatchResult {
+  id: string
+  hotel: Hotel
+  score: number
+}
+
+export async function generateMatchesForUser(userId: number): Promise<MatchResult[]> {
+  try {
+    const sqlite3 = require('sqlite3')
+    const sqlite = require('sqlite')
+
+    const db = await sqlite.open({
+      filename: './data/estadia_perfeita.db',
+      driver: sqlite3.Database,
+    })
+
+    // Buscar usuário
+    const user = await db.get('SELECT * FROM users WHERE id = ?', [userId])
+    if (!user) {
+      await db.close()
+      return []
+    }
+
+    const userPreferences = JSON.parse(user.preferences)
+
+    // Buscar hotéis ativos
+    const hotels = await db.all('SELECT * FROM hotels WHERE is_active = 1')
+
+    const matches: MatchResult[] = []
+
+    for (const hotelRow of hotels) {
+      const hotel: Hotel = {
+        id: hotelRow.id,
+        owner_id: hotelRow.owner_id,
+        name: hotelRow.name,
+        description: hotelRow.description,
+        location: JSON.parse(hotelRow.location),
+        images: JSON.parse(hotelRow.images || '[]'),
+        capacity: hotelRow.capacity,
+        price_per_night: hotelRow.price_per_night,
+        amenities: JSON.parse(hotelRow.amenities || '[]'),
+        leisure_type: JSON.parse(hotelRow.leisure_type || '[]'),
+        accepts_pets: hotelRow.accepts_pets === 1,
+        contact_info: JSON.parse(hotelRow.contact_info),
+        rating: hotelRow.rating,
+        reviews: JSON.parse(hotelRow.reviews || '[]'),
+        is_active: hotelRow.is_active === 1,
+        created_at: hotelRow.created_at,
+        updated_at: hotelRow.updated_at,
+      }
+
+      const score = calculateMatchScore(userPreferences, hotel)
+
+      // Apenas incluir matches com score maior que 30
+      if (score >= 30) {
+        matches.push({
+          id: hotel.id.toString(),
+          hotel,
+          score,
+        })
+      }
+    }
+
+    // Ordenar por score decrescente
+    matches.sort((a, b) => b.score - a.score)
+
+    await db.close()
+    return matches
+
+  } catch (error) {
+    console.error('Erro ao gerar matches:', error)
+    return []
+  }
+}

@@ -5,7 +5,7 @@ export interface IMatch {
   user_id: number
   hotel_id: number
   score: number
-  status: 'pending' | 'contacted' | 'booked' | 'rejected'
+  status: 'pending' | 'matched' | 'contacted' | 'booked' | 'rejected'
   user_liked: boolean
   hotel_liked: boolean
   created_at: string

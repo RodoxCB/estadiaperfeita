@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========== RESET & BASE ========== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,6 +14,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end));
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
 }
 
 code {
@@ -16,14 +24,7 @@ code {
     monospace;
 }
 
-/* ========== UTILITÁRIOS NEOMORPHISM & GLASSMORPHISM ========== */
-
-/* Reset e base neomorphism */
-* {
-  box-sizing: border-box;
-}
-
-/* Theme variables */
+/* ========== THEME VARIABLES ========== */
 :root {
   /* Light mode colors */
   --neo-bg: #e6ebf0;
@@ -48,46 +49,54 @@ code {
   --neo-shadow-dark: #020617;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end));
-  min-height: 100vh;
-  transition: background-color 0.3s ease;
-}
+/* ========== UTILITY CLASSES ========== */
+/* Consistent colors */
+.text-neo-primary { color: var(--neo-primary); }
+.text-neo-secondary { color: var(--neo-secondary); }
+.bg-neo-surface { background-color: var(--neo-surface); }
+.bg-neo-bg { background-color: var(--neo-bg); }
 
-/* Utilitários glassmorphism */
+/* Dark mode text opacity fixes */
+.dark .text-neo-secondary\/70 { color: rgba(148, 163, 184, 0.7); }
+.dark .text-neo-secondary\/80 { color: rgba(148, 163, 184, 0.8); }
+.dark .text-neo-secondary\/60 { color: rgba(148, 163, 184, 0.6); }
+
+/* ========== GLASS MORPHISM ========== */
 .glass {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-strong {
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Animações suaves */
-.transition-neo {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Dark mode glass adjustments */
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Otimizações de performance */
-.glass,
-.glass-strong {
-  will-change: opacity;
-  transform: translateZ(0); /* Force hardware acceleration */
+.dark .glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Fallbacks para browsers sem backdrop-filter */
+/* Backdrop filter support */
+@supports (backdrop-filter: blur(10px)) {
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+}
+
+/* Fallbacks for browsers without backdrop-filter */
 @supports not (backdrop-filter: blur(10px)) {
   .glass {
     background: rgba(255, 255, 255, 0.9);
@@ -98,4 +107,52 @@ body {
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.15);
   }
+
+  .dark .glass {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-strong {
+    background: rgba(30, 41, 59, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* ========== ANIMATIONS & TRANSITIONS ========== */
+.transition-neo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects */
+.hover\:scale-\[1\.02\]:hover { transform: scale(1.02); }
+.hover\:scale-105:hover { transform: scale(1.05); }
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+.glass,
+.glass-strong {
+  will-change: opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
 }

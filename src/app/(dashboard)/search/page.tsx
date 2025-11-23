@@ -2,6 +2,59 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { Button } from '@/components/ui/Button'
+
+function useAuthCheck() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [user, setUser] = useState<any>(null)
+
+  useEffect(() => {
+    const checkAuth = () => {
+      try {
+        const token = localStorage.getItem('token')
+        const userData = localStorage.getItem('user')
+
+        if (token && userData) {
+          try {
+            // Verificar se o token não expirou
+            const payload = JSON.parse(atob(token.split('.')[1]))
+            const currentTime = Date.now() / 1000
+
+            if (payload.exp > currentTime) {
+              setIsAuthenticated(true)
+              setUser(JSON.parse(userData))
+            } else {
+              // Token expirado
+              localStorage.removeItem('token')
+              localStorage.removeItem('user')
+              setIsAuthenticated(false)
+              setUser(null)
+            }
+          } catch (tokenError) {
+            // Token mal formado
+            console.error('Token mal formado:', tokenError)
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            setIsAuthenticated(false)
+            setUser(null)
+          }
+        } else {
+          setIsAuthenticated(false)
+          setUser(null)
+        }
+      } catch (error) {
+        console.error('Erro ao verificar autenticação:', error)
+        setIsAuthenticated(false)
+        setUser(null)
+      }
+    }
+
+    checkAuth()
+  }, [])
+
+  return { isAuthenticated, user }
+}
 
 interface Hotel {
   id: string
@@ -22,21 +75,50 @@ export default function SearchPage() {
   const [hotels, setHotels] = useState<Hotel[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const { isAuthenticated } = useAuthCheck()
   const router = useRouter()
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
+    if (isAuthenticated === false) {
       router.push('/login')
-      return
+    } else if (isAuthenticated === true) {
+      fetchMatches()
     }
-
-    fetchMatches()
-  }, [])
+  }, [isAuthenticated, router])
 
   const fetchMatches = async () => {
     try {
       const token = localStorage.getItem('token')
+
+      // Verificar se temos um token válido antes de fazer a chamada
+      if (!token) {
+        setError('Usuário não autenticado')
+        setLoading(false)
+        return
+      }
+
+      // Verificar se o token não expirou
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]))
+        const currentTime = Date.now() / 1000
+
+        if (payload.exp <= currentTime) {
+          // Token expirado
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          setError('Sessão expirada. Faça login novamente.')
+          setLoading(false)
+          return
+        }
+      } catch (parseError) {
+        // Token mal formado
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setError('Token inválido. Faça login novamente.')
+        setLoading(false)
+        return
+      }
+
       const response = await fetch('/api/matches', {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -45,11 +127,18 @@ export default function SearchPage() {
 
       if (response.ok) {
         const data = await response.json()
-        setHotels(data.matches)
+        setHotels(data.matches || [])
+        setError('') // Limpar erro se a chamada foi bem-sucedida
+      } else if (response.status === 401) {
+        // Token inválido ou expirado
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setError('Sessão expirada. Faça login novamente.')
       } else {
         setError('Erro ao buscar matches')
       }
     } catch (err) {
+      console.error('Erro na requisição:', err)
       setError('Erro de conexão')
     } finally {
       setLoading(false)
@@ -61,9 +150,25 @@ export default function SearchPage() {
     // Aqui você pode implementar um modal ou redirecionamento para WhatsApp/telefone
   }
 
+  // Verificar autenticação antes de renderizar qualquer coisa
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
+        <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
+          <p className="mt-4 text-neo-secondary dark:text-neo-secondary/70">Verificando autenticação...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (isAuthenticated === false) {
+    return null // O redirecionamento será feito pelo useEffect
+  }
+
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface dark:to-gray-900">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
           <p className="mt-4 text-neo-secondary dark:text-neo-secondary/70">Buscando seus matches perfeitos...</p>
@@ -74,7 +179,7 @@ export default function SearchPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface dark:to-gray-900">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass rounded-2xl p-8 shadow-neo text-center max-w-md mx-auto dark:shadow-glass-dark">
           <p className="text-red-400 mb-6">{error}</p>
           <Button onClick={fetchMatches}>
@@ -93,9 +198,23 @@ export default function SearchPage() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent mb-4">
               Seus Matches Perfeitos
             </h1>
-            <p className="text-neo-secondary/80 dark:text-neo-secondary/70">
+            <p className="text-neo-secondary/80 dark:text-neo-secondary/70 mb-6">
               Baseado nas suas preferências, encontramos estes hotéis ideais para você
             </p>
+
+            {/* Adicionar navegação */}
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link href="/discover">
+                <Button variant="outline">
+                  🔍 Descobrir Novos Hotéis
+                </Button>
+              </Link>
+              <Link href="/matches">
+                <Button>
+                  💕 Ver Meus Matches
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 

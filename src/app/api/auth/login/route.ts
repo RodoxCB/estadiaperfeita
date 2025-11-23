@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { UserModel } from '@/models/User-sqlite'
+import { UserModel } from '@/models/User-memory'
 import { hashPassword, verifyPassword, generateToken } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {

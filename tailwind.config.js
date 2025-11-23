@@ -54,4 +54,24 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    // Ensure these classes are not purged
+    'glass',
+    'glass-strong',
+    'shadow-neo',
+    'shadow-neo-lg',
+    'shadow-glass',
+    'shadow-glass-dark',
+    'text-neo-primary',
+    'text-neo-secondary',
+    'bg-neo-surface',
+    'bg-neo-bg',
+    'transition-neo',
+    'hover:scale-105',
+    'hover:scale-[1.02]',
+    'opacity-0',
+    'opacity-100',
+    'scale-95',
+    'scale-100'
+  ]
 }

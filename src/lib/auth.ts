@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { UserModel } from '@/models/User-memory'
+import { UserModel } from '@/models/User-sqlite'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'development-jwt-secret-change-in-production'
 
@@ -25,26 +25,4 @@ export function verifyToken(token: string): { userId: string } | null {
   }
 }
 
-export async function authenticateUser(email: string, password: string) {
-  const user = await UserModel.findByEmail(email)
-  if (!user) {
-    throw new Error('Usuário não encontrado')
-  }
-
-  const isValid = await verifyPassword(password, user.password)
-  if (!isValid) {
-    throw new Error('Senha incorreta')
-  }
-
-  const token = generateToken(user.id.toString())
-
-  return {
-    user: {
-      id: user.id.toString(),
-      name: user.name,
-      email: user.email,
-      preferences: user.preferences,
-    },
-    token,
-  }
-}
+// Função mantida para compatibilidade, mas não usada nas APIs atuais

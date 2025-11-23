@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neo-bg via-neo-surface to-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
       {/* Elementos decorativos de fundo */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-32 h-32 bg-neo-primary/20 rounded-full blur-xl dark:bg-neo-primary/10"></div>

@@ -5,6 +5,10 @@ const nextConfig = {
   },
   // Disable font optimization to avoid network issues
   optimizeFonts: false,
+  // Force localhost binding to avoid permission issues
+  serverRuntimeConfig: {
+    hostname: 'localhost'
+  }
 }
 
 module.exports = nextConfig
