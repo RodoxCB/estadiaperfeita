@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: [
+      'localhost',
+      'images.unsplash.com',
+      'picsum.photos'
+    ],
   },
   // Disable font optimization to avoid network issues
   optimizeFonts: false,

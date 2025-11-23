@@ -200,9 +200,18 @@ export default function MatchesPage() {
                       src={match.hotel.images[0]}
                       alt={match.hotel.name}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback para Lorem Picsum se a imagem do Unsplash falhar
+                        const target = e.currentTarget as HTMLImageElement;
+                        if (!target.src.includes('picsum.photos')) {
+                          target.src = `https://picsum.photos/800/600?random=${match.hotel.id || Math.random()}`;
+                        }
+                      }}
                     />
                   ) : (
-                    <span className="text-neo-secondary/60 text-sm dark:text-neo-secondary/50">🏨 Imagem do Hotel</span>
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                      <span className="text-4xl">🏨</span>
+                    </div>
                   )}
                 </div>
 

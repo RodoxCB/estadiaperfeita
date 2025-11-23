@@ -254,9 +254,18 @@ export default function DiscoverPage() {
                       src={currentHotel.images[0]}
                       alt={currentHotel.name}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback para Lorem Picsum se a imagem do Unsplash falhar
+                        const target = e.currentTarget as HTMLImageElement;
+                        if (!target.src.includes('picsum.photos')) {
+                          target.src = `https://picsum.photos/800/600?random=${currentHotel.id || Math.random()}`;
+                        }
+                      }}
                     />
                   ) : (
-                    <span className="text-gray-500 text-sm dark:text-gray-500">🏨 Imagem do Hotel</span>
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                      <span className="text-4xl">🏨</span>
+                    </div>
                   )}
                 </div>
                 <div className="absolute top-4 right-4">
