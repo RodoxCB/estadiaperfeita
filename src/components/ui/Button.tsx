@@ -7,12 +7,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         // Manter variantes existentes para compatibilidade
-        default: 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600',
-        outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
-        ghost: 'hover:bg-gray-100 text-gray-700 dark:hover:bg-gray-800 dark:text-gray-300',
-        // NOVAS variantes neomorphism
-        neo: 'bg-gradient-to-br from-gray-100 to-white shadow-lg hover:shadow-xl hover:scale-[1.02] text-gray-700 border border-white/20 dark:from-gray-800 dark:to-gray-700 dark:border-gray-600 dark:text-gray-300',
-        glass: 'glass shadow-lg hover:bg-white/20 text-gray-600 hover:text-blue-600 dark:shadow-gray-900 dark:hover:bg-gray-800/50',
+        default: 'bg-neo-primary text-black hover:bg-neo-primary/80 border border-neo-primary/50',
+        outline: 'border border-neo-secondary bg-neo-surface text-neo-secondary hover:bg-neo-surface/80 hover:text-neo-secondary/80',
+        ghost: 'hover:bg-neo-surface/50 text-neo-secondary hover:text-neo-secondary/80',
+        // Neon theme variants
+        neo: 'bg-gradient-to-br from-neo-surface to-black/50 border border-neo-primary/50 shadow-neo-glow hover:shadow-neo-glow text-neo-primary hover:text-white transition-all duration-300 hover:scale-105',
+        glass: 'glass-neon shadow-glass-neon hover:border-neo-secondary/60 hover:shadow-neo-glow-secondary text-white hover:text-neo-secondary',
       },
       size: {
         default: 'h-12 py-3 px-6',

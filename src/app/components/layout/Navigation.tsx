@@ -22,15 +22,15 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-t border-white/20 dark:bg-gray-800/80 dark:border-gray-700/50 md:relative md:bottom-auto md:border-t-0 md:border-b md:bg-transparent md:backdrop-blur-none">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 glass-neon border-t border-neo-primary/20 md:relative md:bottom-auto md:border-t-0 md:border-b md:bg-transparent md:backdrop-blur-none">
       <div className="container mx-auto px-4">
         <div className="flex justify-around md:justify-start md:space-x-8 py-3 md:py-4">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <div className={`flex flex-col items-center p-2 rounded-xl transition-all ${
                 pathname === item.href
-                  ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400'
-                  : 'text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400'
+                  ? 'bg-neo-primary/20 text-neo-primary border border-neo-primary/30'
+                  : 'text-neo-secondary hover:text-neo-primary hover:bg-neo-surface/50'
               }`}>
                 <span className="text-lg md:text-xl">{item.icon}</span>
                 <span className="text-xs md:text-sm font-medium mt-1">{item.label}</span>
@@ -40,7 +40,7 @@ export function Navigation() {
 
           <button
             onClick={handleLogout}
-            className="flex flex-col items-center p-2 rounded-xl text-gray-600 hover:text-red-500 transition-all dark:text-gray-400"
+            className="flex flex-col items-center p-2 rounded-xl text-neo-secondary hover:text-red-400 transition-all"
           >
             <span className="text-lg md:text-xl">🚪</span>
             <span className="text-xs md:text-sm font-medium mt-1">Sair</span>
