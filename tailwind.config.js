@@ -16,31 +16,30 @@ module.exports = {
       },
       boxShadow: {
         'neo': '8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light)',
+        'neo-glow': 'var(--neo-glow-primary), 8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light)',
+        'neo-glow-secondary': 'var(--neo-glow-secondary), 8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light)',
         'neo-inset': 'inset 8px 8px 16px var(--neo-shadow-dark), inset -8px -8px 16px var(--neo-shadow-light)',
         'neo-sm': '4px 4px 8px var(--neo-shadow-dark), -4px -4px 8px var(--neo-shadow-light)',
         'neo-lg': '12px 12px 24px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light)',
-        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-        'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
+        'glass-neon': '0 8px 32px rgba(0, 0, 0, 0.8), var(--neo-glow-primary)',
+        'glass-neon-strong': '0 12px 40px rgba(0, 0, 0, 0.9), var(--neo-glow-primary)',
       },
       backdropBlur: {
         'xs': '2px',
       },
       colors: {
-        // Light mode colors
-        'neo-bg-light': '#e6ebf0',
-        'neo-surface-light': '#f0f4f8',
-        'neo-primary-light': '#4a90e2',
-        'neo-secondary-light': '#7b8ca6',
-        // Dark mode colors
-        'neo-bg-dark': '#0f172a',
-        'neo-surface-dark': '#1e293b',
-        'neo-primary-dark': '#60a5fa',
-        'neo-secondary-dark': '#94a3b8',
-        // Universal colors (used in both modes)
-        'neo-bg': 'var(--neo-bg)',
-        'neo-surface': 'var(--neo-surface)',
-        'neo-primary': 'var(--neo-primary)',
-        'neo-secondary': 'var(--neo-secondary)',
+        // Neon Dark Theme Colors
+        'neo-bg': '#0a0a0f',
+        'neo-surface': '#1a1a2e',
+        'neo-primary': '#00ffff',
+        'neo-secondary': '#ff00ff',
+        'neo-accent': '#00ff88',
+        'neo-pink': '#ff0080',
+        // Universal colors (now always dark neon)
+        'neo-bg-var': 'var(--neo-bg)',
+        'neo-surface-var': 'var(--neo-surface)',
+        'neo-primary-var': 'var(--neo-primary)',
+        'neo-secondary-var': 'var(--neo-secondary)',
       },
       transitionProperty: {
         'neo': 'all',

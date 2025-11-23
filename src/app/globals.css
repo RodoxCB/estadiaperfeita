@@ -23,29 +23,24 @@ code {
   box-sizing: border-box;
 }
 
-/* Theme variables */
+/* ========== THEME VARIABLES ========== */
 :root {
-  /* Light mode colors - cinza muito escuro */
-  --neo-bg: #1a1a1a;
-  --neo-surface: #2a2a2a;
-  --neo-primary: #4a90e2;
-  --neo-secondary: #7b8ca6;
-  --neo-bg-gradient-start: #1a1a1a;
-  --neo-bg-gradient-end: #151515;
-  --neo-shadow-light: #2a2a2a;
-  --neo-shadow-dark: #0f0f0f;
-}
+  /* Neon Dark Theme Colors */
+  --neo-bg: #0a0a0f;
+  --neo-surface: #1a1a2e;
+  --neo-primary: #00ffff;
+  --neo-secondary: #ff00ff;
+  --neo-accent: #00ff88;
+  --neo-pink: #ff0080;
+  --neo-bg-gradient-start: #0a0a0f;
+  --neo-bg-gradient-end: #1a1a2e;
+  --neo-shadow-light: #2a2a4a;
+  --neo-shadow-dark: #000011;
 
-.dark {
-  /* Dark mode colors - cinza muito escuro */
-  --neo-bg: #1a1a1a;
-  --neo-surface: #2a2a2a;
-  --neo-primary: #60a5fa;
-  --neo-secondary: #94a3b8;
-  --neo-bg-gradient-start: #1a1a1a;
-  --neo-bg-gradient-end: #151515;
-  --neo-shadow-light: #2a2a2a;
-  --neo-shadow-dark: #0f0f0f;
+  /* Neon Glow Effects */
+  --neo-glow-primary: 0 0 20px rgba(0, 255, 255, 0.5);
+  --neo-glow-secondary: 0 0 20px rgba(255, 0, 255, 0.5);
+  --neo-glow-accent: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
 body {
