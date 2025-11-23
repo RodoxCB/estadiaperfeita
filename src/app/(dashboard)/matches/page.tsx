@@ -129,9 +129,9 @@ export default function MatchesPage() {
   if (isAuthenticated === null) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Verificando autenticação...</p>
+          <p className="mt-4 text-gray-600 autenticação...</p>
         </div>
       </div>
     )
@@ -144,9 +144,9 @@ export default function MatchesPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Buscando seus matches...</p>
+          <p className="mt-4 text-gray-600 seus matches...</p>
         </div>
       </div>
     )
@@ -155,7 +155,7 @@ export default function MatchesPage() {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center max-w-md mx-auto dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center max-w-md mx-auto
           <p className="text-red-400 mb-6">{error}</p>
           <Button onClick={fetchMatches}>
             Tentar novamente
@@ -169,21 +169,21 @@ export default function MatchesPage() {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
-          <div className="glass rounded-2xl p-8 max-w-2xl mx-auto shadow-neo dark:shadow-glass-dark">
-            <h1 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
+          <div className="glass-neon rounded-2xl p-8 max-w-2xl mx-auto shadow-neo
+            <h1 className="text-4xl font-bold text-blue-600 mb-4">
               Seus Matches! 🎉
             </h1>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600
               Estes são os hotéis que deram match com você. Entre em contato e faça sua reserva!
             </p>
           </div>
         </div>
 
         {matches.length === 0 ? (
-          <div className="glass rounded-2xl p-8 max-w-md mx-auto shadow-neo text-center dark:shadow-glass-dark">
+          <div className="glass-neon rounded-2xl p-8 max-w-md mx-auto shadow-neo text-center
             <div className="text-6xl mb-4">💔</div>
             <h3 className="text-xl font-bold mb-4">Você ainda não tem matches</h3>
-            <p className="text-gray-600 mb-6 dark:text-gray-400">
+            <p className="text-gray-600 mb-6
               Continue dando likes na página de descoberta para encontrar seus matches perfeitos!
             </p>
             <Button onClick={() => router.push('/discover')}>
@@ -193,8 +193,8 @@ export default function MatchesPage() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {matches.map((match) => (
-              <div key={match.id} className="glass rounded-2xl overflow-hidden shadow-neo hover:shadow-neo-lg transition-neo hover:scale-[1.02] dark:shadow-glass-dark">
-                <div className="bg-gradient-to-br from-neo-surface to-white h-48 flex items-center justify-center border-b border-white/20 dark:from-neo-surface dark:to-gray-700 dark:border-gray-600">
+              <div key={match.id} className="glass-neon rounded-2xl overflow-hidden shadow-neo hover:shadow-neo-lg transition-neo hover:scale-[1.02]
+                <div className="bg-gradient-to-br from-neo-surface to-white h-48 flex items-center justify-center border-b border-white/20
                   {match.hotel.images && match.hotel.images.length > 0 ? (
                     <img
                       src={match.hotel.images[0]}
@@ -209,7 +209,7 @@ export default function MatchesPage() {
                       }}
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                       <span className="text-4xl">🏨</span>
                     </div>
                   )}
@@ -217,17 +217,17 @@ export default function MatchesPage() {
 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400">{match.hotel.name}</h3>
-                    <span className="glass px-3 py-1 rounded-full text-xs font-medium text-green-600 dark:shadow-glass-dark">
+                    <h3 className="text-lg font-semibold text-blue-600
+                    <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-green-600
                       {match.score}% match
                     </span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-3 dark:text-gray-400">
+                  <p className="text-gray-600 text-sm mb-3
                     📍 {match.hotel.location.city}, {match.hotel.location.state}
                   </p>
 
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed dark:text-gray-300">
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed
                     {match.hotel.description}
                   </p>
 
@@ -236,7 +236,7 @@ export default function MatchesPage() {
                       <span className="text-xl font-bold text-green-600">
                         R$ {match.hotel.price_per_night}
                       </span>
-                      <span className="text-sm text-gray-500 dark:text-gray-500"> / noite</span>
+                      <span className="text-sm text-gray-500 / noite</span>
                     </div>
                   </div>
 

@@ -194,9 +194,9 @@ export default function DiscoverPage() {
   if (isAuthenticated === null) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Verificando autenticação...</p>
+          <p className="mt-4 text-gray-600 autenticação...</p>
         </div>
       </div>
     )
@@ -209,9 +209,9 @@ export default function DiscoverPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Encontrando seus próximos matches...</p>
+          <p className="mt-4 text-gray-600 seus próximos matches...</p>
         </div>
       </div>
     )
@@ -220,7 +220,7 @@ export default function DiscoverPage() {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass rounded-2xl p-8 shadow-neo text-center max-w-md mx-auto dark:shadow-glass-dark">
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center max-w-md mx-auto
           <p className="text-red-400 mb-6">{error}</p>
           <Button onClick={fetchNextHotels}>
             Tentar novamente
@@ -234,11 +234,11 @@ export default function DiscoverPage() {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <div className="glass rounded-2xl p-6 max-w-md mx-auto shadow-neo dark:shadow-glass-dark">
+          <div className="glass-neon rounded-2xl p-6 max-w-md mx-auto shadow-neo
             <h1 className="text-3xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent mb-2">
               Descobrir Hotéis
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               Dê like nos hotéis que você gostaria de conhecer
             </p>
           </div>
@@ -246,9 +246,9 @@ export default function DiscoverPage() {
 
         <div className="flex justify-center">
           {currentHotel ? (
-            <div className={`glass rounded-3xl overflow-hidden max-w-sm w-full shadow-neo transition-all duration-300 hover:scale-[1.02] dark:shadow-glass-dark ${animating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+            <div className={`glass-neon rounded-3xl overflow-hidden max-w-sm w-full shadow-neo transition-all duration-300 hover:scale-[1.02] ${animating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
               <div className="relative">
-                <div className="bg-gradient-to-br from-neo-surface to-white h-64 flex items-center justify-center border-b border-white/20 dark:from-neo-surface dark:to-gray-700 dark:border-gray-600">
+                <div className="bg-gradient-to-br from-neo-surface to-white h-64 flex items-center justify-center border-b border-white/20
                   {currentHotel.images && currentHotel.images.length > 0 ? (
                     <img
                       src={currentHotel.images[0]}
@@ -263,13 +263,13 @@ export default function DiscoverPage() {
                       }}
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                       <span className="text-4xl">🏨</span>
                     </div>
                   )}
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="glass px-3 py-1 rounded-full text-xs font-medium text-green-600 dark:shadow-glass-dark">
+                  <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-green-600
                     {currentHotel.matchScore}% match
                   </span>
                 </div>
@@ -278,10 +278,10 @@ export default function DiscoverPage() {
               <div className="p-6">
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-neo-primary mb-1">{currentHotel.name}</h3>
-                  <p className="text-gray-600 text-sm dark:text-gray-400 mb-2">
+                  <p className="text-gray-600 text-sm mb-2">
                     📍 {currentHotel.location.city}, {currentHotel.location.state}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed dark:text-gray-300 overflow-hidden" style={{
+                  <p className="text-sm text-gray-700 leading-relaxed overflow-hidden" style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: 'vertical',
@@ -294,7 +294,7 @@ export default function DiscoverPage() {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {currentHotel.amenities.slice(0, 3).map((amenity, index) => (
-                    <span key={index} className="glass px-3 py-1 rounded-full text-xs text-neo-primary dark:shadow-glass-dark">
+                    <span key={index} className="glass-neon px-3 py-1 rounded-full text-xs text-neo-primary
                       {amenity}
                     </span>
                   ))}
@@ -305,9 +305,9 @@ export default function DiscoverPage() {
                     <span className="text-2xl font-bold text-green-600">
                       R$ {currentHotel.pricePerNight}
                     </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-500"> / noite</span>
+                    <span className="text-sm text-gray-500 / noite</span>
                   </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-500">
+                  <div className="text-xs text-gray-500
                     {currentHotel.acceptsPets && '🐕 Aceita pets • '}
                     Até {currentHotel.capacity} pessoas
                   </div>
@@ -317,7 +317,7 @@ export default function DiscoverPage() {
                   <Button
                     onClick={handleDislike}
                     variant="outline"
-                    className="flex-1 h-12 text-lg hover:bg-red-50 hover:border-red-200 dark:hover:bg-red-900/20"
+                    className="flex-1 h-12 text-lg hover:bg-red-50 hover:border-red-200
                     disabled={animating}
                   >
                     ❌ Pular
@@ -333,10 +333,10 @@ export default function DiscoverPage() {
               </div>
             </div>
           ) : (
-            <div className="glass rounded-2xl p-8 shadow-neo text-center max-w-md dark:shadow-glass-dark">
+            <div className="glass-neon rounded-2xl p-8 shadow-neo text-center max-w-md
               <div className="text-6xl mb-4">🎉</div>
               <h3 className="text-xl font-bold mb-4">Todos os hotéis foram avaliados!</h3>
-              <p className="text-gray-600 mb-6 dark:text-gray-400">
+              <p className="text-gray-600 mb-6
                 Você avaliou todos os hotéis recomendados. Volte mais tarde para ver novas recomendações!
               </p>
               <Button onClick={fetchNextHotels} className="w-full">

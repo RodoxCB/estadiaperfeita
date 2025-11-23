@@ -13,7 +13,7 @@ export default function Home() {
 
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="text-center">
-          <div className="glass-strong rounded-3xl p-8 mb-8 max-w-4xl mx-auto dark:shadow-glass-dark">
+          <div className="glass-neon-strong rounded-3xl p-8 mb-8 max-w-4xl mx-auto shadow-glass-neon-strong">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-neo-primary via-neo-secondary to-neo-accent bg-clip-text text-transparent mb-6 drop-shadow-lg">
               Estadia Perfeita
             </h1>
