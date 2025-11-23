@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button'
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
+    <div className="min-h-screen relative overflow-hidden neon-grid cyber-grid" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
       {/* Elementos decorativos neon de fundo */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute top-20 left-10 w-32 h-32 bg-neo-primary/30 rounded-full blur-2xl animate-pulse"></div>

@@ -65,8 +65,11 @@ module.exports = {
     'shadow-glass-neon-strong',
     // Text colors
     'text-neo-primary',
+    'text-neon-primary',
     'text-neo-secondary',
+    'text-neon-secondary',
     'text-neo-accent',
+    'text-neon-accent',
     'text-neo-pink',
     // Background colors
     'bg-neo-surface',
@@ -74,8 +77,13 @@ module.exports = {
     'bg-neo-primary',
     'bg-neo-secondary',
     'bg-neo-accent',
+    // Background effects
+    'neon-grid',
+    'cyber-grid',
     // Transitions and animations
     'transition-neo',
+    'animate-pulse-neon',
+    'animate-glow-pulse',
     'hover:scale-105',
     'hover:scale-[1.02]',
     'opacity-0',
