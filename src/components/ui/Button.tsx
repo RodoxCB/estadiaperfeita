@@ -11,8 +11,8 @@ const buttonVariants = cva(
         outline: 'border border-neo-secondary bg-neo-surface text-neo-secondary hover:bg-neo-surface/80 hover:text-neo-secondary/80',
         ghost: 'hover:bg-neo-surface/50 text-neo-secondary hover:text-neo-secondary/80',
         // Neon theme variants
-        neo: 'bg-gradient-to-br from-neo-surface to-black/50 border border-neo-primary/50 shadow-neo-glow hover:shadow-neo-glow text-neo-primary hover:text-white transition-all duration-300 hover:scale-105',
-        glass: 'glass-neon shadow-glass-neon hover:border-neo-secondary/60 hover:shadow-neo-glow-secondary text-white hover:text-neo-secondary',
+        neo: 'bg-gradient-to-br from-neo-surface to-black/50 border border-neo-primary/50 shadow-neo-glow hover:shadow-neo-glow text-neo-text-primary hover:text-neo-text-secondary transition-all duration-300 hover:scale-105',
+        glass: 'glass-neon shadow-glass-neon hover:border-neo-secondary/60 hover:shadow-neo-glow-secondary text-neo-text-primary hover:text-neo-text-secondary',
       },
       size: {
         default: 'h-12 py-3 px-6',

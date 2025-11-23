@@ -196,22 +196,24 @@ export default function SearchPage() {
         <div className="text-center mb-12">
           <div className="glass-neon rounded-2xl p-8 max-w-2xl mx-auto shadow-neo
             <h1 className="text-4xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent mb-4">
-              Seus Matches Perfeitos
+              ✨ Seus Matches Especiais
             </h1>
-            <p className="text-neo-secondary/80 mb-6">
-              Baseado nas suas preferências, encontramos estes hotéis ideais para você
+            <p className="text-neo-text-secondary mb-6">
+              Estes são os hotéis que mais combinam com seu perfil! Nossa IA
+              analisou suas preferências e encontrou as melhores opções para tornar
+              sua viagem inesquecível.
             </p>
 
             {/* Adicionar navegação */}
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/discover">
                 <Button variant="outline">
-                  🔍 Descobrir Novos Hotéis
+                  🎯 Continuar Explorando
                 </Button>
               </Link>
               <Link href="/matches">
                 <Button>
-                  💕 Ver Meus Matches
+                  💬 Entrar em Contato
                 </Button>
               </Link>
             </div>
@@ -238,7 +240,7 @@ export default function SearchPage() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-lg font-semibold text-neo-primary">{hotel.name}</h3>
-                    <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-green-600
+                    <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-neo-primary">
                       {hotel.matchScore}% match
                     </span>
                   </div>
@@ -261,7 +263,7 @@ export default function SearchPage() {
 
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <span className="text-xl font-bold text-green-600">
+                      <span className="text-xl font-bold text-neo-accent">
                         R$ {hotel.pricePerNight}
                       </span>
                       <span className="text-sm text-neo-secondary/60 / noite</span>

@@ -30,7 +30,7 @@ export function Navigation() {
               <div className={`flex flex-col items-center p-2 rounded-xl transition-all ${
                 pathname === item.href
                   ? 'bg-neo-primary/20 text-neo-primary border border-neo-primary/30'
-                  : 'text-neo-secondary hover:text-neo-primary hover:bg-neo-surface/50'
+                  : 'text-neo-text-secondary hover:text-neo-primary hover:bg-neo-surface/50'
               }`}>
                 <span className="text-lg md:text-xl">{item.icon}</span>
                 <span className="text-xs md:text-sm font-medium mt-1">{item.label}</span>
@@ -40,7 +40,7 @@ export function Navigation() {
 
           <button
             onClick={handleLogout}
-            className="flex flex-col items-center p-2 rounded-xl text-neo-secondary hover:text-red-400 transition-all"
+            className="flex flex-col items-center p-2 rounded-xl text-neo-text-secondary hover:text-red-400 transition-all"
           >
             <span className="text-lg md:text-xl">🚪</span>
             <span className="text-xs md:text-sm font-medium mt-1">Sair</span>

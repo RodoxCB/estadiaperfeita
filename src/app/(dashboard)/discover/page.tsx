@@ -196,7 +196,7 @@ export default function DiscoverPage() {
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 autenticação...</p>
+          <p className="mt-4 text-neo-text-secondary">Verificando sua conta...</p>
         </div>
       </div>
     )
@@ -211,7 +211,7 @@ export default function DiscoverPage() {
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 seus próximos matches...</p>
+          <p className="mt-4 text-neo-text-secondary">Carregando hotéis personalizados para você...</p>
         </div>
       </div>
     )
@@ -236,10 +236,11 @@ export default function DiscoverPage() {
         <div className="text-center mb-8">
           <div className="glass-neon rounded-2xl p-6 max-w-md mx-auto shadow-neo
             <h1 className="text-3xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent mb-2">
-              Descobrir Hotéis
+              🎯 Encontre Seu Match Perfeito
             </h1>
-            <p className="text-gray-600 text-sm">
-              Dê like nos hotéis que você gostaria de conhecer
+            <p className="text-neo-text-secondary text-sm">
+              Avalie os hotéis que aparecem - quanto mais likes você der,
+              melhor entendemos suas preferências!
             </p>
           </div>
         </div>
@@ -278,10 +279,10 @@ export default function DiscoverPage() {
               <div className="p-6">
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-neo-primary mb-1">{currentHotel.name}</h3>
-                  <p className="text-gray-600 text-sm mb-2">
+                  <p className="text-neo-text-secondary text-sm mb-2">
                     📍 {currentHotel.location.city}, {currentHotel.location.state}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed overflow-hidden" style={{
+                  <p className="text-sm text-neo-text-secondary leading-relaxed overflow-hidden" style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: 'vertical',
@@ -305,9 +306,9 @@ export default function DiscoverPage() {
                     <span className="text-2xl font-bold text-green-600">
                       R$ {currentHotel.pricePerNight}
                     </span>
-                    <span className="text-sm text-gray-500 / noite</span>
+                    <span className="text-sm text-neo-text-muted">/ noite</span>
                   </div>
-                  <div className="text-xs text-gray-500
+                  <div className="text-xs text-neo-text-muted">
                     {currentHotel.acceptsPets && '🐕 Aceita pets • '}
                     Até {currentHotel.capacity} pessoas
                   </div>
@@ -320,14 +321,14 @@ export default function DiscoverPage() {
                     className="flex-1 h-12 text-lg hover:bg-red-50 hover:border-red-200
                     disabled={animating}
                   >
-                    ❌ Pular
+                    ⏭️ Pular
                   </Button>
                   <Button
                     onClick={handleLike}
                     className="flex-1 h-12 text-lg bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600"
                     disabled={animating}
                   >
-                    ❤️ Gostei
+                    💚 Quero conhecer!
                   </Button>
                 </div>
               </div>
@@ -335,10 +336,11 @@ export default function DiscoverPage() {
           ) : (
             <div className="glass-neon rounded-2xl p-8 shadow-neo text-center max-w-md
               <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-xl font-bold mb-4">Todos os hotéis foram avaliados!</h3>
-              <p className="text-gray-600 mb-6
-                Você avaliou todos os hotéis recomendados. Volte mais tarde para ver novas recomendações!
-              </p>
+            <h3 className="text-xl font-bold mb-4">🎉 Você é um explorador incansável!</h3>
+            <p className="text-neo-text-secondary mb-6">
+              Avaliou todos os hotéis disponíveis no momento. Que tal configurar
+              mais preferências para descobrirmos opções ainda mais personalizadas?
+            </p>
               <Button onClick={fetchNextHotels} className="w-full">
                 Buscar mais hotéis
               </Button>

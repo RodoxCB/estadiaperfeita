@@ -64,7 +64,7 @@ export default function RegisterPage() {
             <h2 className="mt-6 text-center text-3xl font-bold bg-gradient-to-r from-neo-primary via-neo-secondary to-neo-accent bg-clip-text text-transparent drop-shadow-lg">
               Criar sua conta
             </h2>
-            <p className="mt-2 text-center text-sm text-neo-secondary/90 text-white/70">
+            <p className="mt-2 text-center text-sm text-neo-text-secondary">
               Já tem uma conta?{' '}
               <Link
                 href="/login"

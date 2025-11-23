@@ -35,6 +35,11 @@ module.exports = {
         'neo-secondary': '#ff00ff',
         'neo-accent': '#00ff88',
         'neo-pink': '#ff0080',
+        // High contrast text colors for dark theme - Nearly White
+        'neo-text-primary': '#ffffff',
+        'neo-text-secondary': '#fefefe',
+        'neo-text-muted': '#fbfbfc',
+        'neo-text-accent': '#fdfdfe',
         // Universal colors (now always dark neon)
         'neo-bg-var': 'var(--neo-bg)',
         'neo-surface-var': 'var(--neo-surface)',
@@ -71,6 +76,10 @@ module.exports = {
     'text-neo-accent',
     'text-neon-accent',
     'text-neo-pink',
+    'text-neo-text-primary',
+    'text-neo-text-secondary',
+    'text-neo-text-muted',
+    'text-neo-text-accent',
     // Background colors
     'bg-neo-surface',
     'bg-neo-bg',

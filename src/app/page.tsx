@@ -17,16 +17,18 @@ export default function Home() {
             <h1 className="text-6xl font-bold bg-gradient-to-r from-neo-primary via-neo-secondary to-neo-accent bg-clip-text text-transparent mb-6 drop-shadow-lg">
               Estadia Perfeita
             </h1>
-            <p className="text-xl text-neo-secondary/90 mb-8 max-w-2xl mx-auto leading-relaxed text-white/80">
-              Descubra o hotel ideal para sua viagem. Conte-nos suas preferências
-              e encontraremos o match perfeito entre você e seu próximo destino.
+            <p className="text-xl text-neo-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+              Encontre o hotel dos seus sonhos de forma inteligente e personalizada!
+              Responda algumas perguntas rápidas sobre suas preferências de viagem e
+              deixe nosso algoritmo fazer a magia: conectar você com hospedagens
+              que combinam perfeitamente com seu estilo e necessidades.
             </p>
-            <div className="space-x-6">
-              <Link href="/register">
-                <Button variant="neo" size="lg">Começar Agora</Button>
+            <div className="flex items-center justify-center gap-6">
+              <Link href="/register" className="flex">
+                <Button variant="neo" size="lg" className="h-14">Começar Agora</Button>
               </Link>
-              <Link href="/login">
-                <Button variant="glass" size="lg">Entrar</Button>
+              <Link href="/login" className="flex">
+                <Button variant="glass" size="lg" className="h-14">Entrar</Button>
               </Link>
             </div>
           </div>
@@ -36,27 +38,32 @@ export default function Home() {
           <div className="glass-neon rounded-2xl p-8 shadow-glass-neon hover:shadow-glass-neon-strong transition-neo hover:scale-105">
             <div className="text-4xl mb-6">🏖️</div>
             <h3 className="text-xl font-semibold mb-4 text-neo-primary drop-shadow-sm">Preferências Personalizadas</h3>
-            <p className="text-neo-secondary/90 leading-relaxed text-white/70">
-              Conte-nos sobre você: quantas pessoas, tipo de lazer preferido,
-              se tem pets, orçamento e muito mais.
+            <p className="text-neo-text-secondary leading-relaxed">
+              Responda algumas perguntas rápidas sobre seu grupo de viagem,
+              estilo de férias preferido, restrições alimentares, necessidade
+              de acessibilidade e muito mais. Quanto mais detalhes você compartilhar,
+              melhores serão nossas recomendações!
             </p>
           </div>
 
           <div className="glass-neon rounded-2xl p-8 shadow-glass-neon hover:shadow-glass-neon-strong transition-neo hover:scale-105">
             <div className="text-4xl mb-6">❤️</div>
             <h3 className="text-xl font-semibold mb-4 text-neo-primary drop-shadow-sm">Sistema de Match</h3>
-            <p className="text-neo-secondary/90 leading-relaxed text-white/70">
-              Nosso algoritmo encontra as melhores opções baseado nas suas
-              preferências e perfil de viagem.
+            <p className="text-neo-text-secondary leading-relaxed">
+              Usamos inteligência artificial avançada para analisar milhares de
+              opções e encontrar hotéis que realmente combinam com você.
+              Considere localização, comodidades, avaliações, preço e até mesmo
+              o "feeling" do lugar!
             </p>
           </div>
 
           <div className="glass-neon rounded-2xl p-8 shadow-glass-neon hover:shadow-glass-neon-strong transition-neo hover:scale-105">
             <div className="text-4xl mb-6">💬</div>
             <h3 className="text-xl font-semibold mb-4 text-neo-primary drop-shadow-sm">Contato Direto</h3>
-            <p className="text-neo-secondary/90 leading-relaxed text-white/70">
-              Entre em contato direto com os proprietários e negocie
-              o melhor preço para sua estadia.
+            <p className="text-neo-text-secondary leading-relaxed">
+              Sem intermediários! Conectamos você diretamente com os donos dos
+              hotéis. Negocie preços, tire dúvidas em tempo real e reserve
+              sua hospedagem com quem realmente conhece o lugar.
             </p>
           </div>
         </div>

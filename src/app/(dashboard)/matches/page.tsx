@@ -131,7 +131,7 @@ export default function MatchesPage() {
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 autenticação...</p>
+          <p className="mt-4 text-neo-text-secondary">Verificando autenticação...</p>
         </div>
       </div>
     )
@@ -146,7 +146,7 @@ export default function MatchesPage() {
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
         <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-gray-600 seus matches...</p>
+          <p className="mt-4 text-neo-text-secondary">Carregando seus matches...</p>
         </div>
       </div>
     )
@@ -170,11 +170,12 @@ export default function MatchesPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <div className="glass-neon rounded-2xl p-8 max-w-2xl mx-auto shadow-neo
-            <h1 className="text-4xl font-bold text-blue-600 mb-4">
-              Seus Matches! 🎉
+            <h1 className="text-4xl font-bold text-neo-primary mb-4">
+              ✨ Seus Matches! 🎉
             </h1>
-            <p className="text-gray-600
-              Estes são os hotéis que deram match com você. Entre em contato e faça sua reserva!
+            <p className="text-neo-text-secondary">
+              Estes são os hotéis que deram match perfeito com você!
+              Entre em contato diretamente e garanta sua reserva especial.
             </p>
           </div>
         </div>
@@ -183,8 +184,9 @@ export default function MatchesPage() {
           <div className="glass-neon rounded-2xl p-8 max-w-md mx-auto shadow-neo text-center
             <div className="text-6xl mb-4">💔</div>
             <h3 className="text-xl font-bold mb-4">Você ainda não tem matches</h3>
-            <p className="text-gray-600 mb-6
-              Continue dando likes na página de descoberta para encontrar seus matches perfeitos!
+            <p className="text-neo-text-secondary mb-6">
+              Continue explorando na página de descoberta para encontrar seus
+              próximos matches perfeitos!
             </p>
             <Button onClick={() => router.push('/discover')}>
               Ir para Descoberta
@@ -217,26 +219,28 @@ export default function MatchesPage() {
 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-semibold text-blue-600
-                    <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-green-600
+                    <h3 className="text-lg font-semibold text-neo-primary">
+                      {match.hotel.name}
+                    </h3>
+                    <span className="glass-neon px-3 py-1 rounded-full text-xs font-medium text-neo-primary">
                       {match.score}% match
                     </span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-3
+                  <p className="text-neo-text-secondary text-sm mb-3">
                     📍 {match.hotel.location.city}, {match.hotel.location.state}
                   </p>
 
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed
+                  <p className="text-sm text-neo-text-secondary mb-4 leading-relaxed">
                     {match.hotel.description}
                   </p>
 
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <span className="text-xl font-bold text-green-600">
+                      <span className="text-xl font-bold text-neo-accent">
                         R$ {match.hotel.price_per_night}
                       </span>
-                      <span className="text-sm text-gray-500 / noite</span>
+                      <span className="text-sm text-neo-text-muted">/ noite</span>
                     </div>
                   </div>
 
