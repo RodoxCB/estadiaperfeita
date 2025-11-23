@@ -154,9 +154,9 @@ export default function SearchPage() {
   if (isAuthenticated === null) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end))' }}>
-        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center
+        <div className="glass-neon rounded-2xl p-8 shadow-neo text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neo-primary mx-auto"></div>
-          <p className="mt-4 text-neo-secondary autenticação...</p>
+          <p className="mt-4 text-neo-secondary">Verificando autenticação...</p>
         </div>
       </div>
     )
