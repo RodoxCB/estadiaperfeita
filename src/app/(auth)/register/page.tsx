@@ -50,20 +50,21 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface relative overflow-hidden dark:to-gray-900">
-      {/* Elementos decorativos */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neo-primary/10 rounded-full blur-3xl dark:bg-neo-primary/5"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-neo-secondary/10 rounded-full blur-2xl dark:bg-neo-secondary/3"></div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neo-bg to-neo-surface relative overflow-hidden">
+      {/* Elementos decorativos neon */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neo-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-neo-secondary/15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-neo-accent/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="max-w-md w-full space-y-8 relative z-10">
-        <div className="glass-strong rounded-3xl p-8 shadow-neo dark:shadow-glass-dark">
+        <div className="glass-neon-strong rounded-3xl p-8 shadow-glass-neon-strong">
           <div>
-            <h2 className="mt-6 text-center text-3xl font-bold bg-gradient-to-r from-neo-primary to-neo-secondary bg-clip-text text-transparent">
+            <h2 className="mt-6 text-center text-3xl font-bold bg-gradient-to-r from-neo-primary via-neo-secondary to-neo-accent bg-clip-text text-transparent drop-shadow-lg">
               Criar sua conta
             </h2>
-            <p className="mt-2 text-center text-sm text-neo-secondary/70 dark:text-neo-secondary/60">
+            <p className="mt-2 text-center text-sm text-neo-secondary/90 text-white/70">
               Já tem uma conta?{' '}
               <Link
                 href="/login"
@@ -114,7 +115,7 @@ export default function RegisterPage() {
             </div>
 
             {error && (
-              <div className="glass rounded-lg p-3 text-center dark:shadow-glass-dark">
+              <div className="glass-neon rounded-lg p-3 text-center shadow-glass-neon">
                 <span className="text-red-400 text-sm">{error}</span>
               </div>
             )}
