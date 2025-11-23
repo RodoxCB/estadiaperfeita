@@ -1,33 +1,83 @@
-# Estadia Perfeita 🏠❤️
+# Estadia Perfeita
 
-**Estadia Perfeita** é uma plataforma que combina matching do Tinder com hospedagem do Airbnb. Conecta viajantes com anfitriões compatíveis para experiências únicas de hospedagem.
+Um sistema de matching entre usuários e hotéis/pousadas, similar ao Tinder mas para hospedagem. Conecta viajantes com anfitriões compatíveis para experiências únicas de hospedagem.
 
-## 🎯 Características Principais
+## 🚀 Como executar
 
-- **🔍 Matching Inteligente**: Algoritmo que conecta viajantes com anfitriões baseado em interesses e valores
-- **🏡 Experiências Autênticas**: Hospedagens que oferecem conexões reais e culturais
-- **💬 Comunicação Integrada**: Chat para facilitar contato e planejamento
-- **⭐ Sistema de Avaliação**: Feedback mútuo para qualidade e segurança
-- **🎨 Interface Intuitiva**: Design moderno e fácil de usar
+### 1. Instalar dependências
+```bash
+npm install
+```
 
-## 🚀 Tecnologias
+### 2. Criar banco de dados e dados de teste
+```bash
+npm run db:seed
+```
 
-- **Frontend**: React.js com TypeScript
-- **Backend**: Node.js com Express
-- **Banco de Dados**: MongoDB
+### 3. Executar o servidor
+```bash
+npm run dev
+```
 
-## 📋 Funcionalidades
+### 4. Acessar a aplicação
+- 🌐 **Aplicação:** http://localhost:3000
+- 📱 **API:** http://localhost:3000/api
 
-### Para Viajantes
-- Criar perfil com preferências de viagem
-- Buscar anfitriões por localização e interesses
-- Sistema de "curtir" para matching
-- Reservar estadias diretamente pelo app
+## 🔐 Credenciais de teste
 
-### Para Anfitriões
-- Criar perfil detalhado do espaço
-- Definir preferências de hóspedes
-- Gerenciar reservas e disponibilidade
+- **Email:** `joao@example.com`
+- **Senha:** `123456`
+
+- **Email:** `maria@example.com`
+- **Senha:** `123456`
+
+## 🗃️ Tecnologias utilizadas
+
+- **Frontend:** Next.js 14, React, TypeScript, Tailwind CSS
+- **Backend:** Next.js API Routes
+- **Banco de dados:** SQLite (desenvolvimento local)
+- **Autenticação:** JWT
+- **Matching:** Algoritmo baseado em preferências
+
+## 🎯 Funcionalidades
+
+- ✅ Cadastro e login de usuários
+- ✅ Configuração de preferências de viagem
+- ✅ Sistema de matching inteligente
+- ✅ Lista de hotéis compatíveis
+- ✅ Interface responsiva com dark mode
+- ✅ Design moderno com neomorphism/glassmorphism
+
+## 📁 Estrutura do projeto
+
+```
+estadia-perfeita/
+├── src/
+│   ├── app/                 # Páginas Next.js
+│   │   ├── api/            # APIs REST
+│   │   ├── (auth)/         # Páginas de autenticação
+│   │   └── (dashboard)/    # Páginas do dashboard
+│   ├── components/         # Componentes React
+│   ├── lib/               # Utilitários e configurações
+│   └── models/            # Modelos de dados
+├── data/                  # Banco SQLite
+├── public/                # Arquivos estáticos
+└── scripts/               # Scripts de seed
+```
+
+## 🔧 Desenvolvimento
+
+### Comandos disponíveis
+- `npm run dev` - Servidor de desenvolvimento
+- `npm run build` - Build de produção
+- `npm run start` - Servidor de produção
+- `npm run db:seed` - Popular banco com dados de teste
+
+### Arquivos importantes
+- `.env.local` - Configurações de ambiente
+- `src/lib/db-sqlite.ts` - Conexão com banco
+- `src/lib/auth.ts` - Sistema de autenticação
+- `src/lib/matching-sqlite.ts` - Algoritmo de matching
 
 ## 🔒 Configuração de Ambiente
 
@@ -42,3 +92,16 @@ Para configurar as variáveis de ambiente:
 - **main**: Código em produção
 - **staging**: Ambiente de testes
 - **development**: Desenvolvimento ativo
+
+## 🎨 Personalização
+
+O design usa Tailwind CSS com dark mode como padrão e pode ser facilmente personalizado editando as classes nos componentes em `src/components/`.
+
+## 📈 Próximos passos
+
+- [ ] Upload de imagens dos hotéis
+- [ ] Sistema de mensagens entre usuários
+- [ ] Avaliações e reviews
+- [ ] Filtros avançados de busca
+- [ ] Geolocalização
+- [ ] Integração com mapas
