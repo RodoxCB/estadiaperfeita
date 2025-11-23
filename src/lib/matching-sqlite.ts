@@ -102,20 +102,15 @@ export interface MatchResult {
   score: number
 }
 
+import { getDb } from './db-sqlite'
+
 export async function generateMatchesForUser(userId: number): Promise<MatchResult[]> {
   try {
-    const sqlite3 = require('sqlite3')
-    const sqlite = require('sqlite')
-
-    const db = await sqlite.open({
-      filename: './data/estadia_perfeita.db',
-      driver: sqlite3.Database,
-    })
+    const db = await getDb()
 
     // Buscar usuário
     const user = await db.get('SELECT * FROM users WHERE id = ?', [userId])
     if (!user) {
-      await db.close()
       return []
     }
 
@@ -162,7 +157,6 @@ export async function generateMatchesForUser(userId: number): Promise<MatchResul
     // Ordenar por score decrescente
     matches.sort((a, b) => b.score - a.score)
 
-    await db.close()
     return matches
 
   } catch (error) {

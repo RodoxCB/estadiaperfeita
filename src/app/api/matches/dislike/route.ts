@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/auth'
-import { MatchModel } from '@/models/Match-memory'
+import { MatchModel } from '@/models/Match-sqlite'
 
 export async function POST(request: NextRequest) {
   try {

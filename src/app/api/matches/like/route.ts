@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/auth'
-import { UserModel } from '@/models/User-memory'
-import { MatchModel } from '@/models/Match-memory'
-import { generateMatchesForUser } from '@/lib/matching-memory'
+import { UserModel } from '@/models/User-sqlite'
+import { MatchModel } from '@/models/Match-sqlite'
+import { generateMatchesForUser } from '@/lib/matching-sqlite'
 
 export async function POST(request: NextRequest) {
   try {

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/auth'
-import { UserModel } from '@/models/User-memory'
-import { generateMatchesForUser } from '@/lib/matching-memory'
+import { UserModel } from '@/models/User-sqlite'
+import { generateMatchesForUser } from '@/lib/matching-sqlite'
 
 export async function GET(request: NextRequest) {
   try {
@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    // Gerar matches usando o sistema de memória
+    // Gerar matches usando o sistema SQLite
     const matches = await generateMatchesForUser(parseInt(decoded.userId))
 
     return NextResponse.json({
@@ -40,11 +40,11 @@ export async function GET(request: NextRequest) {
         name: match.hotel.name,
         description: match.hotel.description,
         location: match.hotel.location,
-        pricePerNight: match.hotel.pricePerNight,
+        pricePerNight: match.hotel.price_per_night,
         capacity: match.hotel.capacity,
-        acceptsPets: match.hotel.acceptsPets,
+        acceptsPets: match.hotel.accepts_pets,
         amenities: match.hotel.amenities,
-        matchScore: match.hotel.matchScore,
+        matchScore: match.score,
       })),
     })
   } catch (error: any) {

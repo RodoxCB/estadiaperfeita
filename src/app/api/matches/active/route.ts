@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/auth'
-import { MatchModel } from '@/models/Match-memory'
-import db from '@/lib/db-memory'
+import { MatchModel } from '@/models/Match-sqlite'
+import { HotelModel } from '@/models/Hotel-sqlite'
 
 export async function GET(request: NextRequest) {
   try {
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
     // Buscar dados completos dos hotéis
     const hotelIds = activeMatches.map(match => match.hotel_id)
     const hotels = await Promise.all(
-      hotelIds.map(hotelId => db.findHotelById(hotelId))
+      hotelIds.map(hotelId => HotelModel.findById(hotelId))
     )
 
     // Combinar dados
@@ -47,9 +47,9 @@ export async function GET(request: NextRequest) {
         hotel: hotel ? {
           name: hotel.name,
           description: hotel.description,
-          location: JSON.parse(hotel.location),
-          contact_info: JSON.parse(hotel.contact_info),
-          images: JSON.parse(hotel.images || '[]'),
+          location: hotel.location,
+          contact_info: hotel.contact_info,
+          images: hotel.images,
           price_per_night: hotel.price_per_night
         } : null,
         score: match.score,
