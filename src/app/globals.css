@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ========== UTILITÁRIOS NEOMORPHISM & GLASSMORPHISM ========== */
+
+/* Reset e base neomorphism */
+* {
+  box-sizing: border-box;
+}
+
+/* ========== THEME VARIABLES ========== */
+:root {
+  /* Neon Dark Theme Colors */
+  --neo-bg: #0a0a0f;
+  --neo-surface: #1a1a2e;
+  --neo-primary: #00ffff;
+  --neo-secondary: #ff00ff;
+  --neo-accent: #00ff88;
+  --neo-pink: #ff0080;
+  --neo-bg-gradient-start: #0a0a0f;
+  --neo-bg-gradient-end: #1a1a2e;
+  --neo-shadow-light: #2a2a4a;
+  --neo-shadow-dark: #000011;
+
+  /* Text Colors for High Contrast - Nearly White */
+  --neo-text-primary: #ffffff;    /* Pure white for primary text */
+  --neo-text-secondary: #fefefe;  /* Ultra light for secondary text */
+  --neo-text-muted: #fbfbfc;      /* Very light for subtle text */
+  --neo-text-accent: #fdfdfe;     /* Nearly white accent text color */
+
+  /* Neon Glow Effects */
+  --neo-glow-primary: 0 0 20px rgba(0, 255, 255, 0.5);
+  --neo-glow-secondary: 0 0 20px rgba(255, 0, 255, 0.5);
+  --neo-glow-accent: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(145deg, var(--neo-bg-gradient-start), var(--neo-bg-gradient-end));
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+/* ========== GLASS MORPHISM NEON ========== */
+.glass-neon {
+  background: rgba(26, 26, 46, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), var(--neo-glow-primary);
+}
+
+.glass-neon-strong {
+  background: rgba(26, 26, 46, 0.2);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), var(--neo-glow-secondary);
+}
+
+/* Animações suaves */
+.transition-neo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== TIPOGRAFIA NEON ========== */
+/* Neon accent colors with glow effects */
+.text-neon-primary {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.text-neon-secondary {
+  color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.text-neon-accent {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Standard readable text colors */
+.text-neo-primary {
+  color: var(--neo-text-primary);
+}
+
+.text-neo-secondary {
+  color: var(--neo-text-secondary);
+}
+
+.text-neo-muted {
+  color: var(--neo-text-muted);
+}
+
+.text-neo-accent {
+  color: var(--neo-text-accent);
+}
+
+/* ========== ANIMAÇÕES NEON ========== */
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ========== EFEITOS DE FUNDO ========== */
+.neon-grid {
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.cyber-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(0, 255, 255, 0.1) 50%, transparent 51%),
+    linear-gradient(transparent 49%, rgba(255, 0, 255, 0.1) 50%, transparent 51%);
+  background-size: 100px 100px;
+  animation: scan-lines 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan-lines {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ========== OTIMIZAÇÕES DE PERFORMANCE ========== */
+.glass-neon,
+.glass-neon-strong {
+  will-change: opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
+  contain: layout style paint;
+}
+
+/* Fallbacks para browsers sem backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass-neon {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  }
+
+  .glass-neon-strong {
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(255, 0, 255, 0.7);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
+  }
+}
